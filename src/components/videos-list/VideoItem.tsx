@@ -1,34 +1,12 @@
 import React from 'react';
+import { snippet } from './SearchResult.type';
 import './styles/VideoItem.scss';
-type snippet = {
-    publishedAt: string;
-    channelId: string;
-    channelTitle: string;
-    title: string;
-    description: string;
-    thumbnails: {
-        default: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        medium: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        high: {
-            url: string;
-            width: string;
-            height: string;
-        };
-    };
-};
+
 export const VideoItem = ({ item }: { item: snippet }) => {
     return (
         <>
-            <div className="ytb">
-                <div className="ytb__thumb">
+            <div className="ytb col-sm-12">
+                <div className="ytb__thumb col-sm-4">
                     <img
                         src={item.thumbnails.medium.url}
                         width={item.thumbnails.medium.width}
@@ -38,7 +16,7 @@ export const VideoItem = ({ item }: { item: snippet }) => {
                     />
                     <span className="ytb__thumb_timestamp">7:53</span>
                 </div>
-                <div className="ytb__content">
+                <div className="ytb__content col-sm-8">
                     <div className="ytb__content_title">{item.title}</div>
                     <div className="ytb__content_channel">
                         <span className="ytb__content-channel_name">

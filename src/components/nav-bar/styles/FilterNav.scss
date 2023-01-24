@@ -1,0 +1,31 @@
+.filterNav {
+    margin-top: 9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #9999994f;
+        padding-bottom: 12px;
+    }
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(84 83 83 / 98%);
+    }
+    &__button{
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(84 83 83 / 98%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

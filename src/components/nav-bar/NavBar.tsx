@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState  } from 'react';
 import { fetchDataSearch } from '../../features/form-submit/DataFormSubmitSlice';
 import { useAppDispatch } from '../../store/hooks';
 import './styles/NavBar.scss';
@@ -20,15 +20,17 @@ export const NavBar = () => {
     };
     return (
         <nav className="navbar">
-            <div className="navbar__actions">
+            <div className='navbar__wrapper col-sm-5'> 
+            <div className="navbar__actions col-sm-2">
                 <img
                     className="navbar__logo"
-                    src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png"
+                    src="./youtube-logo.png"
                     alt="Youtube logo"
                 />
-            </div>
-
-            <form onSubmit={handleSearch} className="navbar__search form ">
+            </div> 
+            <div className='navbar__search col-sm-10'>
+             
+               <form onSubmit={handleSearch} className="navbar__search_form ">
                 <input
                     type="text"
                     placeholder="search"
@@ -42,7 +44,10 @@ export const NavBar = () => {
                         alt="Find"
                     />
                 </button>
-            </form>
+            </form> 
+            </div>
+            </div>
+      
         </nav>
     );
 };

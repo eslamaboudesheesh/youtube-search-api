@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { Layout } from './components/layout/Layout';
+import { FilterNav } from './components/nav-bar/FilterNav';
 import { VideosList } from './components/videos-list/VideosList';
 import { useAppSelector } from './store/hooks';
 
@@ -11,36 +12,24 @@ type InitialState = {
 };
 function App() {
     const [data, setData] = useState([]);
+    const [resData, setresData] : any =useState();
 
     const DataSearch: InitialState = useAppSelector((state: any) => state.DataSearch);
     useEffect(() => {
+       setData([])
         setData(DataSearch.data.items);
+        setresData(DataSearch.data);
     }, [DataSearch, DataSearch.loading]);
 
     return (
         <Layout>
-            {/* <div className="App ">
-        {data && (
-          data.map((item: SearchResult, index: number) => (
-            <div key={item.id.videoId} >
-              <p>{item.id.kind?.includes(`channel`) ? "fff" : "non"}</p>
-              <img
-                src={item.snippet.thumbnails.medium.url}
-                width={item.snippet.thumbnails.medium.width}
-                height={item.snippet.thumbnails.medium.height}
-                alt={item.snippet.title}
-              />
-              <p>{item.snippet.title}</p>
-              <p>{item.snippet.description}</p>
-            </div>
-          ))
-        ) }
-        {DataSearch.loading && (
-          <Spinner animation="border" variant="primary" />
-        )}
-       
-      </div> */}
-            <VideosList data={data} />
+           {data && ( <> 
+            <FilterNav data= {resData} />
+            <VideosList data={data} /> 
+            </>
+           )
+          }
+          {DataSearch.loading && <> Looafing </>}
         </Layout>
     );
 }

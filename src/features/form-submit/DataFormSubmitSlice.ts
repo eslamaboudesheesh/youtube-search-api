@@ -19,7 +19,7 @@ export const fetchDataSearch = createAsyncThunk('Search', (data: string) => {
         .get('https://www.googleapis.com/youtube/v3/search', {
             params: {
                 part: 'snippet',
-                maxResults: 5,
+                maxResults: 25,
                 key: API_KEY,
                 q: data,
             },

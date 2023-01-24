@@ -1,34 +1,13 @@
 import React from 'react';
+import { snippet } from './SearchResult.type';
 import './styles/ChannelItem.scss';
-type snippet = {
-    publishedAt: string;
-    channelId: string;
-    channelTitle: string;
-    title: string;
-    description: string;
-    thumbnails: {
-        default: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        medium: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        high: {
-            url: string;
-            width: string;
-            height: string;
-        };
-    };
-};
+
 export const ChannelItem = ({ item }: { item: snippet }) => {
     return (
         <>
-            <div className="ytbc">
-                <div className="ytbc__thumb">
+           
+            <div className="ytbc col-sm-12">
+                <div className="ytbc__thumb col-sm-4">
                     <img
                         src={item.thumbnails.medium.url}
                         width={item.thumbnails.medium.width}
@@ -37,7 +16,7 @@ export const ChannelItem = ({ item }: { item: snippet }) => {
                         className="ytbc__thumb_img"
                     />
                 </div>
-                <div className="ytbc__content">
+                <div className="ytbc__content col-sm-8">
                     <div className="ytbc__content_title">{item.title}</div>
                     <div className="ytbc__content_channel">
                         <span className="ytbc__content-channel_name">

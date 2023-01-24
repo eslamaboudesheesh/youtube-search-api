@@ -1,34 +1,12 @@
 import React from 'react';
+import { snippet } from './SearchResult.type';
 import './styles/PlayListItem.scss';
-type snippet = {
-    publishedAt: string;
-    channelId: string;
-    channelTitle: string;
-    title: string;
-    description: string;
-    thumbnails: {
-        default: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        medium: {
-            url: string;
-            width: string;
-            height: string;
-        };
-        high: {
-            url: string;
-            width: string;
-            height: string;
-        };
-    };
-};
+
 export const PlayListItem = ({ item }: { item: snippet }) => {
     return (
         <>
-            <div className="ytbl">
-                <div className="ytbl__thumb">
+            <div className="ytbl col-sm-12">
+                <div className="ytbl__thumb col-sm-4">
                     <img
                         src={item.thumbnails.medium.url}
                         width={item.thumbnails.medium.width}
@@ -40,7 +18,7 @@ export const PlayListItem = ({ item }: { item: snippet }) => {
                         46 <i className="fa-solid fa-play"></i>
                     </span>
                 </div>
-                <div className="ytbl__content">
+                <div className="ytbl__content col-sm-8">
                     <div className="ytbl__content_title">{item.title}</div>
                     <div className="ytbl__content_channel">
                         <span className="ytbl__content-channel_name">
