@@ -3,13 +3,12 @@ import DataFormSubmirReducer from '../features/form-submit/DataFormSubmitSlice';
 
 const store = configureStore({
     reducer: {
-       
         DataSearch: DataFormSubmirReducer,
     },
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export default store;

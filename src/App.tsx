@@ -1,28 +1,25 @@
-import React, { useEffect, useState } from "react";
-import "./App.scss";
-import { Layout } from "./components/layout/Layout";
-import { VideosList } from "./components/videos-list/VideosList";
-import { useAppSelector } from "./store/hooks";
+import React, { useEffect, useState } from 'react';
+import './App.scss';
+import { Layout } from './components/layout/Layout';
+import { VideosList } from './components/videos-list/VideosList';
+import { useAppSelector } from './store/hooks';
 
 type InitialState = {
-  loading: boolean;
-  data: any;
-  error: string;
+    loading: boolean;
+    data: any;
+    error: string;
 };
 function App() {
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  const DataSearch: InitialState = useAppSelector(
-    (state: any) => state.DataSearch
-  );
-  useEffect(() => {
+    const DataSearch: InitialState = useAppSelector((state: any) => state.DataSearch);
+    useEffect(() => {
+        setData(DataSearch.data.items);
+    }, [DataSearch, DataSearch.loading]);
 
-    setData(DataSearch.data.items);
-  }, [DataSearch, DataSearch.loading]);
-
-  return (
-    <Layout>
-      {/* <div className="App ">
+    return (
+        <Layout>
+            {/* <div className="App ">
         {data && (
           data.map((item: SearchResult, index: number) => (
             <div key={item.id.videoId} >
@@ -43,9 +40,9 @@ function App() {
         )}
        
       </div> */}
-      <VideosList data={data}/>
-    </Layout>
-  );
+            <VideosList data={data} />
+        </Layout>
+    );
 }
 
 export default App;
