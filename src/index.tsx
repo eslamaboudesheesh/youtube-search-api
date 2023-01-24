@@ -5,16 +5,34 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { Provider } from 'react-redux';
 import store from './store';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ErrorPage from './pages/error-page/errorPage';
 
+import { SearchResult } from './pages/search-result/searchResult';
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+        errorElement: <ErrorPage />,
+        children: [
+         
+            {
+                path: 'search',
+                element: <SearchResult />,
+            },
+        ],
+    },
+]);
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App />
+        <Provider store={store}>            
+        <RouterProvider router={router} />
         </Provider>
     </React.StrictMode>,
 );
