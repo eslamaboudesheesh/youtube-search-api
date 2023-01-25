@@ -21,6 +21,7 @@ export const NavBar = () => {
     }, []);
 
     const onChangeValue = (e: any) => {
+        e.stopPropagation();
         setvalue(e.target.value);
     };
 
