@@ -4,6 +4,7 @@ import { fetchDataSearch } from '../../features/form-submit/DataFormSubmitSlice'
 import { useAppDispatch } from '../../store/hooks';
 import './styles/NavBar.scss';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 export const NavBar = () => {
     const [value, setvalue] = useState(' ');
@@ -21,7 +22,6 @@ export const NavBar = () => {
     }, []);
 
     const onChangeValue = (e: any) => {
-        e.stopPropagation();
         setvalue(e.target.value);
     };
 
@@ -60,9 +60,14 @@ export const NavBar = () => {
                             value={value}
                             className="form-control"
                         />
-                        <button className="btn " type="submit">
+                        <Button
+                            className="btn "
+                            type="submit"
+                            variant="outline-secondary"
+                            size="lg"
+                        >
                             <i className="fa fa-search"></i>
-                        </button>
+                        </Button>
                     </form>
                 </Col>
                 <Col xs={10} className="navbar__search_mo ">
@@ -74,10 +79,16 @@ export const NavBar = () => {
                             value={value}
                             className={`form-control  ${isClicked ? 'show' : 'hide'}`}
                         />
-                        <button className="btn " type="button" onClick={changedisplay}>
-                            <i className="fa fa-search"></i>
-                        </button>
                     </form>
+                    <Button
+                        className="btn"
+                        type="button"
+                        onClick={changedisplay}
+                        variant="outline-secondary"
+                        size="lg"
+                    >
+                        <i className="fa fa-search"></i>
+                    </Button>
                 </Col>
             </Col>
         </nav>
