@@ -1,12 +1,13 @@
 import React from 'react';
 import { snippet } from './SearchResult.type';
 import './styles/PlayListItem.scss';
+import Col from 'react-bootstrap/Col';
 
 export const PlayListItem = ({ item }: { item: snippet }) => {
     return (
         <>
-            <div className="ytbl col-sm-12">
-                <div className="ytbl__thumb col-sm-4">
+            <Col xs={12} className="ytbl col-sm-12 my-3">
+                <Col xs={5} className="ytbl__thumb ">
                     <img
                         src={item.thumbnails.medium.url}
                         width={item.thumbnails.medium.width}
@@ -17,9 +18,9 @@ export const PlayListItem = ({ item }: { item: snippet }) => {
                     <span className="ytbl__thumb_ListNumber">
                         46 <i className="fa-solid fa-play"></i>
                     </span>
-                </div>
-                <div className="ytbl__content col-sm-8">
-                    <div className="ytbl__content_title">{item.title}</div>
+                </Col>
+                <Col xs={7} className="ytbl__content ">
+                    <h2 className="ytbl__content_title">{item.title}</h2>
                     <div className="ytbl__content_channel">
                         <span className="ytbl__content-channel_name">
                             {item.channelTitle} <i className="fas fa-check-circle"></i>
@@ -28,9 +29,9 @@ export const PlayListItem = ({ item }: { item: snippet }) => {
                             9K Views • 1 Year ago
                         </span>
                     </div>
-                    <div className="ytbl__content_desc">{item.description}</div>
-                </div>
-            </div>
+                    <p className="ytbl__content_desc">{item.description}</p>
+                </Col>
+            </Col>
         </>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/FilterNav.scss';
+import Col from 'react-bootstrap/Col';
 type fiterNave = {
     pageInfo: { totalResults: number; resultsPerPage: number };
 };
@@ -7,17 +8,17 @@ export const FilterNav = ({ data }: { data: fiterNave }) => {
     console.log(data);
     return (
         <nav className="filterNav  ">
-            <div className="filterNav__wrapper col-sm-5 ">
-                <div className="filterNav__title col-sm-6" >
+            <Col xs={12} xl={5} className="filterNav__wrapper  ">
+                <Col xs={6} className="filterNav__title ">
                     {data && <p> About {data?.pageInfo.totalResults} filterd results </p>}
-                </div>
+                </Col>
 
-                <div className="filterNav__button col-sm-6">
+                <Col xs={6} className="filterNav__button ">
                     <span className="filterNav__filter">
-                        <i className="fa-solid fa-filter"></i> filter{' '}
+                        <i className="fa-solid fa-filter"></i> filter
                     </span>
-                </div>
-            </div>
+                </Col>
+            </Col>
         </nav>
     );
 };

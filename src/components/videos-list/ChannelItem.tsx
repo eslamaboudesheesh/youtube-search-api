@@ -1,13 +1,13 @@
 import React from 'react';
 import { snippet } from './SearchResult.type';
 import './styles/ChannelItem.scss';
+import Col from 'react-bootstrap/Col';
 
 export const ChannelItem = ({ item }: { item: snippet }) => {
     return (
         <>
-           
-            <div className="ytbc col-sm-12">
-                <div className="ytbc__thumb col-sm-4">
+            <Col xs={12} className="ytbc  my-3">
+                <Col xs={5} className="ytbc__thumb ">
                     <img
                         src={item.thumbnails.medium.url}
                         width={item.thumbnails.medium.width}
@@ -15,9 +15,9 @@ export const ChannelItem = ({ item }: { item: snippet }) => {
                         alt={item.title}
                         className="ytbc__thumb_img"
                     />
-                </div>
-                <div className="ytbc__content col-sm-8">
-                    <div className="ytbc__content_title">{item.title}</div>
+                </Col>
+                <Col xs={7} className="ytbc__content ">
+                    <h2 className="ytbc__content_title">{item.title}</h2>
                     <div className="ytbc__content_channel">
                         <span className="ytbc__content-channel_name">
                             {item.channelTitle} <i className="fas fa-check-circle"></i>
@@ -26,9 +26,9 @@ export const ChannelItem = ({ item }: { item: snippet }) => {
                             9K Views • 1 Year ago
                         </span>
                     </div>
-                    <div className="ytbc__content_desc">{item.description}</div>
-                </div>
-            </div>
+                    <p className="ytbc__content_desc">{item.description}</p>
+                </Col>
+            </Col>
         </>
     );
 };

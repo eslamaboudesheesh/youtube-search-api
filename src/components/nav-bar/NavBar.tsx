@@ -3,6 +3,8 @@ import { createSearchParams, Link, useNavigate } from 'react-router-dom';
 import { fetchDataSearch } from '../../features/form-submit/DataFormSubmitSlice';
 import { useAppDispatch } from '../../store/hooks';
 import './styles/NavBar.scss';
+import Col from 'react-bootstrap/Col';
+
 export const NavBar = () => {
     const [value, setvalue] = useState(' ');
     const navigate = useNavigate();
@@ -28,13 +30,13 @@ export const NavBar = () => {
     };
     return (
         <nav className="navbar">
-            <div className="navbar__wrapper col-sm-5">
-                <div className="navbar__actions col-sm-2">
+            <Col xs={12} xl={5} className="navbar__wrapper ">
+                <Col xs={2} className="navbar__actions ">
                     <Link to="/">
                         <img className="navbar__logo" src="./youtube-logo.png" alt="Youtube logo" />
                     </Link>
-                </div>
-                <div className="navbar__search col-sm-10">
+                </Col>
+                <Col xs={10} className="navbar__search ">
                     <form onSubmit={handleSearch} className="navbar__search_form ">
                         <input
                             type="text"
@@ -50,8 +52,8 @@ export const NavBar = () => {
                             />
                         </button>
                     </form>
-                </div>
-            </div>
+                </Col>
+            </Col>
         </nav>
     );
 };

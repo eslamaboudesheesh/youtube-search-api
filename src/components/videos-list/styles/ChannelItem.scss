@@ -1,10 +1,10 @@
 .ytbc {
     display: flex;
     margin-bottom: 10px;
-     max-width: 40%;
+    max-width: 100%;
     width: 100%;
-    align-items: center;
-
+    align-items: flex-start;
+    padding: 10px;
     &__thumb {
         background: white;
 
@@ -34,14 +34,75 @@
         font-family: sans-serif;
         &_title {
             font-weight: bold;
-            font-size: 15.5px;
+            font-size: 1em;
         }
         &_channel {
-            font-size: 14px;
+            font-size: 1em;
             color: #555;
             span {
                 display: block;
                 margin-top: 5px;
+            }
+        }
+        p {
+            text-overflow: ellipsis;
+            font-size: 1em;
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .ytbc {
+        display: flex;
+        margin-bottom: 10px;
+        max-width: 40%;
+        width: 100%;
+        align-items: flex-start;
+
+        &__thumb {
+            background: white;
+
+            position: relative;
+            &_img {
+                width: 85%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+            &_timestamp {
+                z-index: 1;
+                position: absolute;
+                right: 4px;
+                bottom: 4px;
+                background-color: black;
+                border: 2px solid black;
+                border-radius: 3px;
+                opacity: 0.8;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: white;
+            }
+        }
+        &__content {
+            padding-left: 10px;
+            font-family: sans-serif;
+            &_title {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            &_channel {
+                font-size: 1em;
+                color: #555;
+                span {
+                    display: block;
+                    margin-top: 5px;
+                }
+            }
+            p {
+                text-overflow: ellipsis;
+                font-size: 0.9em;
+                display: block;
             }
         }
     }

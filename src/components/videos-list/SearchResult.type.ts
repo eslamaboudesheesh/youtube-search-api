@@ -1,4 +1,4 @@
-export type  snippet = {
+export type snippet = {
     publishedAt: string;
     channelId: string;
     title: string;
@@ -22,8 +22,8 @@ export type  snippet = {
         };
     };
 };
- 
- export type SearchResult = {
+
+export type SearchResult = {
     id: { kind: string; videoId: string };
     snippet: snippet
 };
