@@ -79,16 +79,16 @@ export const NavBar = () => {
                             value={value}
                             className={`form-control  ${isClicked ? 'show' : 'hide'}`}
                         />
+                        <Button
+                            className="btn"
+                            type="button"
+                            onClick={changedisplay}
+                            variant="outline-secondary"
+                            size="lg"
+                        >
+                            <i className="fa fa-search"></i>
+                        </Button>
                     </form>
-                    <Button
-                        className="btn"
-                        type="button"
-                        onClick={changedisplay}
-                        variant="outline-secondary"
-                        size="lg"
-                    >
-                        <i className="fa fa-search"></i>
-                    </Button>
                 </Col>
             </Col>
         </nav>
