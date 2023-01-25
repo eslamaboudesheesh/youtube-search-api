@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-const API_KEY = 'AIzaSyB6QLbWh7WHTHKrDe25405JsHkSVSBNcSg';
+const API_KEY = 'AIzaSyAiTcqBMO77CgPsrAL75zYAe-zXI1DPA2k';
 
 type InitialState = {
     loading: boolean;

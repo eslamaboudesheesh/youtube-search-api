@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createSearchParams, Link, useNavigate } from 'react-router-dom';
 import { fetchDataSearch } from '../../features/form-submit/DataFormSubmitSlice';
 import { useAppDispatch } from '../../store/hooks';
@@ -7,8 +7,18 @@ import Col from 'react-bootstrap/Col';
 
 export const NavBar = () => {
     const [value, setvalue] = useState(' ');
+    const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(max-width:  768px)').matches) {
+                setIsClicked(false);
+            } else {
+                setIsClicked(true);
+            }
+        });
+    }, []);
 
     const onChangeValue = (e: any) => {
         setvalue(e.target.value);
@@ -45,11 +55,26 @@ export const NavBar = () => {
                             value={value}
                             className="form-control"
                         />
-                        <button className="btn" type="submit">
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/a/ad/VisualEditor_-_Icon_-_Search-big.svg"
-                                alt="Find"
-                            />
+                        <button className="btn " type="submit">
+                            <i className="fa fa-search"></i>
+                        </button>
+                    </form>
+                </Col>
+                <Col xs={10} className="navbar__search_mo ">
+                    <form onSubmit={handleSearch} className="navbar__search_mo_form ">
+                        <input
+                            type="text"
+                            placeholder="search"
+                            onChange={onChangeValue}
+                            value={value}
+                            className={`form-control  ${isClicked ? 'show' : 'hide'}`}
+                        />
+                        <button
+                            className="btn "
+                            type="button"
+                            onClick={() => setIsClicked(!isClicked)}
+                        >
+                            <i className="fa fa-search"></i>
                         </button>
                     </form>
                 </Col>
