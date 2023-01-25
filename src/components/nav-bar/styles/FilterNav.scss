@@ -1,3 +1,5 @@
+@import '../../../sassStyles/mixins';
+
 .filterNav {
     display: none;
 }
@@ -29,7 +31,7 @@
         padding: 5px;
     }
 }
-@media only screen and (min-width: 768px) {
+@include respond-mobile {
     .filterNavmo {
         display: none;
     }

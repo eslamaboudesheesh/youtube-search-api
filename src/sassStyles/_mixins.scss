@@ -1,0 +1,6 @@
+@import '../sassStyles/variables';
+@mixin respond-mobile {
+    @media (min-width: $small-screen) {
+        @content;
+    }
+}
