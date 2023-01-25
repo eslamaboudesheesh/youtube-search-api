@@ -38,6 +38,10 @@ export const NavBar = () => {
             }).toString(),
         });
     };
+    const changedisplay = (e: any) => {
+        e.preventDefault();
+        setIsClicked(!isClicked);
+    };
     return (
         <nav className="navbar">
             <Col xs={12} xl={5} className="navbar__wrapper ">
@@ -69,11 +73,7 @@ export const NavBar = () => {
                             value={value}
                             className={`form-control  ${isClicked ? 'show' : 'hide'}`}
                         />
-                        <button
-                            className="btn "
-                            type="button"
-                            onClick={() => setIsClicked(!isClicked)}
-                        >
+                        <button className="btn " type="button" onClick={changedisplay}>
                             <i className="fa fa-search"></i>
                         </button>
                     </form>
