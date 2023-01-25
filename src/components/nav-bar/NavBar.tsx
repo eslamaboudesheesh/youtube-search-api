@@ -39,7 +39,7 @@ export const NavBar = () => {
         });
     };
     const changedisplay = (e: any) => {
-        e.preventDefault();
+        e.stopPropagation();
         setIsClicked(!isClicked);
     };
     return (
