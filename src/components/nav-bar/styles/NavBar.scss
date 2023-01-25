@@ -59,13 +59,14 @@
                 display: none;
             }
             button {
-                width: 8rem;
-                height: 3rem;
-                border: 1px solid $color-grey-4;
+                width: auto;
+                height: auto;
+                border: none;
                 border-radius: 2px;
                 margin: 0;
-                background-color: $color-grey-1;
-                color: $color-grey-5;
+                background-color: transparent;
+                color: hsl(0deg 4% 26% / 65%);
+                font-size: 1.6em;
 
                 img {
                     height: 100%;
@@ -133,7 +134,7 @@
                     margin: 0;
                     background-color: $color-grey-1;
                     color: $color-grey-5;
-
+                    font-size: medium;
                     img {
                         height: 100%;
                     }
